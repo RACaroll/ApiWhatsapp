@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt"><br>
+    <input type="number" id="num"><br>
+    <button onclick="send()" id="btn">Send</button>
+
+
+    <script>
+        let dados = {
+            prefixo: 55,
+            ddd: 18,
+            number: 996540419,
+            link: 'https://wa.me/',
+            finalLink: '/?text=',
+        }
+        let btn = document.getElementById('btn')
+
+        function send() {
+            txt = document.getElementById('txt').value
+            num = document.getElementById('num').value 
+            let msg1 = `mensagem: ${txt}\n------------------\nnumero: ${num}`
+
+            let msg = encodeURIComponent(msg1)
+
+            // let msg = msg1.replace(/\s/g, "%20")
+
+            let pronta = `${dados.link}${dados.prefixo}${dados.ddd}${dados.number}${dados.finalLink}${msg}`
+            window.open(pronta)
+            console.log(pronta)
+        }
+    </script>
+</body>
+</html>
